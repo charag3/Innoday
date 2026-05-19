@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNODAYS AMXRICAS 2026 — Invitación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #E8602C;
+      --pink: #E8407A;
+      --red: #C0192B;
+      --black: #0c0c0c;
+      --off-white: #F5F0EB;
+      --muted: #9a8f87;
+    }
+
+    body {
+      background: var(--black);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      padding: 2rem;
+    }
+
+    .card {
+      position: relative;
+      width: 420px;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(12,12,12,0.08) 0%,
+        rgba(12,12,12,0.0) 25%,
+        rgba(12,12,12,0.55) 60%,
+        rgba(12,12,12,0.96) 100%
+      );
+    }
+
+    .color-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--red), var(--orange), var(--pink));
+      z-index: 3;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 2rem 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .eyebrow {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.9rem;
+    }
+
+    .event-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--off-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--pink);
+      margin-bottom: 1.4rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .meta-item {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .meta-item::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .bottom-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--orange);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.3rem;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover {
+      background: var(--pink);
+    }
+
+    .cta-arrow {
+      font-size: 0.8rem;
+      line-height: 1;
+    }
+
+    .qr-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .qr-wrap {
+      background: var(--off-white);
+      padding: 6px;
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+    }
+
+    .qr-wrap canvas,
+    .qr-wrap img {
+      width: 60px !important;
+      height: 60px !important;
+    }
+
+    .qr-label {
+      font-size: 0.48rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .deadline {
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .deadline::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Desktop view alongside card */
+    .page-label {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(154,143,135,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="color-bar"></div>
+    <img class="card-bg" src="./hero.jpeg" alt="Innodays Amxricas 2026">
+    <div class="card-overlay"></div>
+
+    <div class="card-content">
+      <div class="eyebrow">Estás invitado</div>
+
+      <div class="event-title">INNODAYS<br>AMXRICAS</div>
+      <div class="event-tagline">The Americas, in color.</div>
+
+      <div class="meta-row">
+        <div class="meta-item">October 29–30, 2026</div>
+        <div class="meta-item">Medellín 65, Roma Norte · CDMX</div>
+      </div>
+
+      <div class="deadline">RSVP antes del 1 de octubre</div>
+
+      <div class="bottom-row">
+        <a class="cta-btn" href="./index.html" id="rsvp-link">
+          Confirmar asistencia
+          <span class="cta-arrow">→</span>
+        </a>
+        <div class="qr-block">
+          <div class="qr-wrap" id="qrcode"></div>
+          <div class="qr-label">Escanear para<br>confirmar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-label">Innodays Amxricas 2026 · Invitation Card</div>
+
+  <script>
+    const RSVP_URL = 'PLACEHOLDER_RSVP_URL';
+
+    new QRCode(document.getElementById('qrcode'), {
+      text: RSVP_URL,
+      width: 60,
+      height: 60,
+      colorDark: '#0c0c0c',
+      colorLight: '#F5F0EB',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+
+    document.getElementById('rsvp-link').href = RSVP_URL;
+  </script>
+
+</body>
+</html>

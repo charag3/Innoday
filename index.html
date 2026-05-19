@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNODAYS AMXRICAS 2026 — RSVP</title>
+  <meta name="description" content="Confirma tu asistencia a Innodays Amxricas 2026. October 29–30 · Roma Norte, México City.">
+  <meta property="og:title" content="INNODAYS AMXRICAS 2026">
+  <meta property="og:description" content="The Americas, in color. October 29–30 · Roma Norte, CDMX.">
+  <meta property="og:image" content="./hero.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #E8602C;
+      --pink:   #E8407A;
+      --red:    #C0192B;
+      --black:  #0c0c0c;
+      --off-white: #F5F0EB;
+      --muted:  #9a8f87;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--black);
+      color: var(--off-white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ── COLOR BAR ── */
+    .color-bar {
+      height: 3px;
+      background: linear-gradient(to right, var(--red), var(--orange), var(--pink));
+      width: 100%;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: brightness(0.72);
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(12,12,12,0.1) 0%,
+        rgba(12,12,12,0.0) 28%,
+        rgba(12,12,12,0.65) 65%,
+        rgba(12,12,12,0.97) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8vw 7vh;
+      max-width: 860px;
+    }
+
+    .eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.4rem;
+    }
+
+    .event-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--off-white);
+      margin-bottom: 1.1rem;
+    }
+
+    .event-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 300;
+      color: var(--pink);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .event-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-meta span::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--orange);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 8vw;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--orange), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.1); }
+    }
+
+    /* ── RSVP SECTION ── */
+    .rsvp-section {
+      padding: 8rem 8vw;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .rsvp-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 5rem 6vw;
+      }
+    }
+
+    .rsvp-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--off-white);
+      margin-bottom: 1.4rem;
+    }
+
+    .rsvp-left h2 em { color: var(--orange); font-style: italic; }
+
+    .rsvp-left p {
+      font-size: 0.8rem;
+      line-height: 1.9;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 2rem;
+    }
+
+    .detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .detail-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .detail-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(232,96,44,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+
+    .detail-text strong {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      margin-bottom: 0.2rem;
+    }
+
+    .detail-text span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .deadline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid rgba(192,25,43,0.35);
+      padding: 0.5rem 1rem;
+    }
+
+    .deadline-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* ── FORM ── */
+    .rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(245,240,235,0.1);
+      padding: 1.4rem 0;
+      transition: border-color 0.3s ease;
+    }
+
+    .field:focus-within { border-bottom-color: var(--orange); }
+
+    .field label {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      transition: color 0.3s ease;
+    }
+
+    .field:focus-within label { color: var(--orange); }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--off-white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      width: 100%;
+      caret-color: var(--orange);
+      resize: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: rgba(154,143,135,0.4); }
+
+    .field select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field select option { background: #1a1a1a; color: var(--off-white); }
+
+    .select-wrapper { position: relative; }
+
+    .select-wrapper::after {
+      content: '↓';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+
+    .submit-btn {
+      margin-top: 2.5rem;
+      background: var(--orange);
+      color: var(--black);
+      border: none;
+      padding: 1.1rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.15s ease;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .submit-btn:hover:not(:disabled) { background: var(--pink); transform: translateY(-1px); }
+    .submit-btn:active:not(:disabled) { transform: translateY(0); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .btn-spinner {
+      display: none;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(12,12,12,0.3);
+      border-top-color: var(--black);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .form-note {
+      margin-top: 1rem;
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+      opacity: 0.6;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-message {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .success-message.visible { display: flex; }
+
+    .success-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .success-message h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: var(--off-white);
+      line-height: 1.1;
+    }
+
+    .success-message h3 em { color: var(--orange); font-style: italic; }
+
+    .success-message p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 340px;
+    }
+
+    .success-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(245,240,235,0.07);
+      margin: 0 8vw;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 8vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    footer .brand strong { color: var(--off-white); font-weight: 400; }
+
+    footer .legal {
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      color: rgba(154,143,135,0.4);
+      text-transform: uppercase;
+    }
+
+    /* ── ERROR STATE ── */
+    .form-error {
+      display: none;
+      margin-top: 0.8rem;
+      font-size: 0.65rem;
+      color: var(--red);
+      letter-spacing: 0.05em;
+    }
+
+    .form-error.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="color-bar"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero-image" src="./hero.jpeg" alt="Innodays Amxricas 2026">
+    <div class="hero-gradient"></div>
+
+    <div class="hero-content">
+      <div class="eyebrow">Schwan Cosmetics · Innodays Amxricas</div>
+      <h1 class="event-title">INNODAYS<br>AMXRICAS</h1>
+      <div class="event-tagline">The Americas, in color.</div>
+      <div class="event-meta">
+        <span>October 29–30, 2026</span>
+        <span>Medellín 65, Roma Norte · CDMX</span>
+        <span>RSVP antes del 1 de octubre</span>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#rsvp">
+      <div class="scroll-line"></div>
+      RSVP
+    </a>
+  </section>
+
+  <!-- RSVP Section -->
+  <section class="rsvp-section" id="rsvp">
+
+    <!-- Left: Info -->
+    <div class="rsvp-left">
+      <h2>Confirma tu<br><em>asistencia.</em></h2>
+      <p>
+        Un encuentro íntimo con los líderes de la industria cosmética en las Américas.
+        Dos días de conversaciones, tendencias y conexiones que marcan la dirección
+        del mercado regional.
+      </p>
+
+      <div class="detail-list">
+        <div class="detail-item">
+          <div class="detail-icon">📅</div>
+          <div class="detail-text">
+            <strong>Fechas</strong>
+            <span>Octubre 29 y 30, 2026</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">📍</div>
+          <div class="detail-text">
+            <strong>Venue</strong>
+            <span>Medellín 65, Col. Roma Norte<br>Ciudad de México</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">🎟</div>
+          <div class="detail-text">
+            <strong>Acceso</strong>
+            <span>Solo por invitación. Tu registro será confirmado por correo electrónico.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deadline-badge">Fecha límite: 1 de octubre</div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="rsvp-right">
+
+      <form class="rsvp-form" id="rsvp-form" novalidate>
+        <div class="field">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="company">Empresa / Organización</label>
+          <input type="text" id="company" name="company" placeholder="Tu empresa" required autocomplete="organization">
+        </div>
+
+        <div class="field">
+          <label for="role">Cargo</label>
+          <input type="text" id="role" name="role" placeholder="Tu posición" autocomplete="organization-title">
+        </div>
+
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@empresa.com" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="phone">WhatsApp / Teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="+52 55 0000 0000" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="guests">Número de asistentes</label>
+          <div class="select-wrapper">
+            <select id="guests" name="guests" required>
+              <option value="" disabled selected>Selecciona</option>
+              <option value="1">Solo yo (1)</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4+">4 o más</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes">¿Algún comentario o restricción alimentaria?</label>
+          <textarea id="notes" name="notes" rows="2" placeholder="Opcional..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span class="btn-spinner" id="btn-spinner"></span>
+          <span id="btn-text">Confirmar asistencia →</span>
+        </button>
+
+        <div class="form-error" id="form-error">
+          Algo salió mal. Por favor intenta de nuevo o escríbenos directamente.
+        </div>
+
+        <p class="form-note">
+          Recibirás un correo de confirmación en los próximos días hábiles.
+          Solo por invitación — espacio limitado.
+        </p>
+      </form>
+
+      <div class="success-message" id="success-message">
+        <div class="success-icon">✦</div>
+        <div class="success-divider"></div>
+        <h3>Registro<br><em>confirmado.</em></h3>
+        <p>
+          Gracias por confirmar. En los próximos días recibirás todos los detalles
+          del evento en tu correo electrónico.
+        </p>
+        <p style="font-size:0.7rem; color: var(--muted); opacity: 0.7;">
+          Innodays Amxricas 2026 · October 29–30 · Roma Norte, CDMX
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <footer>
+    <div class="brand"><strong>Innodays Amxricas</strong> · 2026</div>
+    <div class="legal">Schwan Cosmetics · Solo por invitación</div>
+  </footer>
+
+  <script>
+    const FORMSPREE_ENDPOINT = 'PLACEHOLDER_FORMSPREE_ENDPOINT';
+
+    const form = document.getElementById('rsvp-form');
+    const successMsg = document.getElementById('success-message');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const formError = document.getElementById('form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError.classList.remove('visible');
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(el => {
+        if (!el.value.trim()) {
+          el.style.borderBottom = '1px solid var(--red)';
+          valid = false;
+        } else {
+          el.style.borderBottom = '';
+        }
+      });
+      if (!valid) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      btnSpinner.style.display = 'block';
+      btnText.textContent = 'Enviando...';
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.classList.add('visible');
+          document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        btnSpinner.style.display = 'none';
+        btnText.textContent = 'Confirmar asistencia →';
+        formError.classList.add('visible');
+      }
+    });
+  </script>
+
+</body>
+</html>
