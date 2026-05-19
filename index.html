@@ -7,7 +7,7 @@
   <meta name="description" content="Confirma tu asistencia a Innodays Amxricas 2026. October 29–30 · Roma Norte, México City.">
   <meta property="og:title" content="INNODAYS AMXRICAS 2026">
   <meta property="og:description" content="The Americas, in color. October 29–30 · Roma Norte, CDMX.">
-  <meta property="og:image" content="./hero.jpeg">
+  <meta property="og:image" content="./rsvp-bg.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -55,18 +55,24 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      filter: brightness(0.72);
+      object-position: center center;
+      filter: brightness(0.6) saturate(1.1);
+    }
+
+    /* Fallback cuando no hay imagen — fondo floral simulado con color */
+    .hero-image[src="./rsvp-bg.jpeg"]:not([complete]) {
+      display: none;
     }
 
     .hero-gradient {
       position: absolute;
       inset: 0;
+      /* Más denso en centro/bottom para que el texto flote sobre flores */
       background: linear-gradient(
         to bottom,
-        rgba(12,12,12,0.1) 0%,
-        rgba(12,12,12,0.0) 28%,
-        rgba(12,12,12,0.65) 65%,
+        rgba(12,12,12,0.35) 0%,
+        rgba(12,12,12,0.15) 30%,
+        rgba(12,12,12,0.55) 60%,
         rgba(12,12,12,0.97) 100%
       );
     }
@@ -476,7 +482,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img class="hero-image" src="./hero.jpeg" alt="Innodays Amxricas 2026">
+    <img class="hero-image" src="./rsvp-bg.jpeg" alt="Innodays Amxricas 2026">
     <div class="hero-gradient"></div>
 
     <div class="hero-content">
