@@ -1,0 +1,23 @@
+:root {
+  --red:       #C0192B;
+  --red-dark:  #9E1422;
+  --pink:      #E8B4CC;
+  --pink-form: #FBF0F5;
+  --dark:      #1A0A14;
+  --muted:     #9E7088;
+  --white:     #FFFFFF;
+}
+
+/* Flower wall — fixed, covers entire page */
+.page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('/flower-wall.png') center center / cover no-repeat;
+  z-index: -1;
+}

@@ -1,0 +1,17 @@
+node_modules
+dist
+.env
+.DS_Store
+
+# Working/source images — not web assets
+BGINNODAY.png
+REDLOGO.png
+FotomodeloV.png
+Fotomodeloh.png
+iphone.png
+MacBook Pro 14_ - 6.png
+CORP-NATIONAL (1).png
+Remove_models,_keep_flower_wall_202606201007 2.png
+corp-national.png
+internacional.html
+fonts/
