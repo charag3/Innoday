@@ -129,6 +129,10 @@ export default function RSVPForm({ variant }) {
             Your information is shared only with the Schwan Cosmetics team.
           </p>
         </form>
+
+        <div className={styles.logoWrap}>
+          <img src="/schwan_logo_stacked_red.svg" alt="Schwan Cosmetics" className={styles.logo} />
+        </div>
       </div>
     </section>
   )

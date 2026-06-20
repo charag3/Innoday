@@ -11,7 +11,7 @@ export default function Hero({ variant }) {
 
         <div className={styles.overlay}>
           <p className={styles.title}>
-            INNODAYS AM<span className={styles.mx}>X</span>RICAS
+            INNODAYS A<span className={styles.mx}>MX</span>RICAS
           </p>
           <p className={styles.dates}>{variant.dates}</p>
           <p className={styles.address}>{variant.address}</p>

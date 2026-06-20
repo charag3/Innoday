@@ -21,16 +21,37 @@
 /* Mobile: narrower frame for portrait photo */
 @media (max-width: 640px) {
   .hero {
-    padding: 5vh 7vw;
+    padding: 8vh 8vw;
+    align-items: center;
   }
 
   .frame {
-    width: min(420px, 84vw);
+    width: min(340px, 78vw);
+    /* portrait image: let it breathe top + bottom */
+    max-height: 78svh;
+    overflow: hidden;
+  }
+
+  .photo {
+    object-fit: cover;
+    max-height: 78svh;
   }
 
   .title {
-    font-size: clamp(1.4rem, 7vw, 2rem);
+    font-size: clamp(1.3rem, 6.5vw, 1.8rem);
     white-space: normal;
+  }
+
+  .dates {
+    font-size: clamp(0.6rem, 3vw, 0.8rem);
+  }
+
+  .address {
+    font-size: clamp(0.55rem, 2.6vw, 0.72rem);
+  }
+
+  .rsvpBy {
+    font-size: clamp(0.5rem, 2.4vw, 0.65rem);
   }
 }
 

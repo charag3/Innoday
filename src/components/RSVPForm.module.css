@@ -165,6 +165,19 @@
   text-align: center;
 }
 
+/* ── LOGO ── */
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  width: 80px;
+  opacity: 0.85;
+}
+
 /* ── SUCCESS ── */
 .success {
   text-align: center;

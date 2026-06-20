@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Hero from './components/Hero'
 import RSVPForm from './components/RSVPForm'
 import styles from './App.module.css'
@@ -23,6 +24,15 @@ export default function App() {
   const params = new URLSearchParams(window.location.search)
   const key = params.get('v') === 'internacional' ? 'internacional' : 'nacional'
   const variant = VARIANTS[key]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY
+      document.documentElement.style.setProperty('--parallax-y', `${y * 0.18}px`)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div className={styles.page}>

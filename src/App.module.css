@@ -17,7 +17,10 @@
 .page::before {
   content: '';
   position: fixed;
-  inset: 0;
+  inset: -20%;
   background: url('/flower-wall.png') center center / cover no-repeat;
+  transform: translateY(var(--parallax-y, 0px));
+  will-change: transform;
+  filter: blur(2px);
   z-index: -1;
 }
