@@ -27,14 +27,21 @@
 
   .frame {
     width: min(340px, 78vw);
-    /* portrait image: let it breathe top + bottom */
-    max-height: 78svh;
-    overflow: hidden;
+    /* overflow visible so text overlay is never clipped */
+    overflow: visible;
   }
 
+  /* clip + round the image itself instead of the frame */
   .photo {
+    border-radius: 6px;
+    max-height: 76svh;
     object-fit: cover;
-    max-height: 78svh;
+  }
+
+  /* overlay must also clip to the image area, not the frame */
+  .overlay {
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
   }
 
   .title {
