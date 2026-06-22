@@ -14,13 +14,16 @@
   position: relative;
   width: min(1040px, 82vw);
   border-radius: 6px;
-  box-shadow: 0 40px 100px rgba(26, 10, 20, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
 /* ── FRAME — clips image to rounded corners ── */
 .frame {
   border-radius: 6px;
   overflow: hidden;
+  /* iOS Safari fix: forces GPU layer so overflow+border-radius clips correctly */
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .photo {
