@@ -12,12 +12,10 @@
 .frameWrap {
   position: relative;
   width: min(1040px, 82vw);
-  /* border-radius here shapes the box-shadow — no overflow:hidden needed */
-  border-radius: 8px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
 }
 
-/* border-radius directo en el img — Safari siempre lo respeta */
 .photo {
   width: 100%;
   display: block;
@@ -80,7 +78,6 @@
   margin-top: 0.2rem;
 }
 
-/* ── MOBILE — al final para que overridee las reglas base ── */
 @media (max-width: 640px) {
   .hero {
     padding: 8vh 6vw;
@@ -88,11 +85,14 @@
 
   .frameWrap {
     width: min(360px, 88vw);
+    box-shadow: none;
+    border-radius: 0;
   }
 
   .photo {
-    max-height: 76svh;
-    object-position: center top;
+    border-radius: 0;
+    object-fit: contain;
+    object-position: center;
   }
 
   .overlay {
