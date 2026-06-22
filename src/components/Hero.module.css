@@ -9,13 +9,18 @@
   padding: 6vh 8vw;
 }
 
-/* ── FRAME ── */
-.frame {
+/* ── WRAPPER — holds shadow + positions overlay ── */
+.frameWrap {
   position: relative;
   width: min(1040px, 82vw);
   border-radius: 6px;
-  overflow: hidden;
   box-shadow: 0 40px 100px rgba(26, 10, 20, 0.5);
+}
+
+/* ── FRAME — clips image to rounded corners ── */
+.frame {
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .photo {
@@ -25,7 +30,7 @@
   object-position: center top;
 }
 
-/* ── TEXT OVERLAY — bottom third, no gradient ── */
+/* ── TEXT OVERLAY — sibling of frame, never clipped ── */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -37,9 +42,9 @@
   align-items: center;
   gap: 0.3rem;
   text-align: center;
+  border-radius: 0 0 6px 6px;
 }
 
-/* "INNODAYS AMXRICAS" — one line, same weight */
 .title {
   font-family: 'Neuzeit', sans-serif;
   font-weight: 900;
@@ -81,46 +86,41 @@
   margin-top: 0.2rem;
 }
 
-/* ── MOBILE — media query MUST be last so it overrides base rules ── */
+/* ── MOBILE — at the end so it overrides base rules ── */
 @media (max-width: 640px) {
   .hero {
-    padding: 8vh 8vw;
-    align-items: center;
+    padding: 8vh 6vw;
   }
 
-  .frame {
-    width: min(340px, 78vw);
-    overflow: visible;
+  .frameWrap {
+    width: min(360px, 88vw);
   }
 
   .photo {
-    border-radius: 6px;
     max-height: 76svh;
     object-fit: cover;
+    object-position: center top;
   }
 
   .overlay {
-    border-radius: 0 0 6px 6px;
-    overflow: hidden;
     padding: 0 1rem 1.2rem;
   }
 
   .title {
-    /* scale to fit frame width — 17 chars at Neuzeit Black */
-    font-size: clamp(1rem, 5.2vw, 1.5rem);
+    font-size: clamp(1.2rem, 5.8vw, 1.7rem);
     white-space: nowrap;
     letter-spacing: 0.01em;
   }
 
   .dates {
-    font-size: clamp(0.6rem, 3vw, 0.8rem);
+    font-size: clamp(0.62rem, 3vw, 0.8rem);
   }
 
   .address {
-    font-size: clamp(0.55rem, 2.6vw, 0.72rem);
+    font-size: clamp(0.58rem, 2.6vw, 0.72rem);
   }
 
   .rsvpBy {
-    font-size: clamp(0.5rem, 2.4vw, 0.65rem);
+    font-size: clamp(0.52rem, 2.4vw, 0.65rem);
   }
 }
